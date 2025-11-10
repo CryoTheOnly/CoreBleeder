@@ -83,7 +83,7 @@ def open_task():
         CR3 = random.choice(list1)
         CR4 = random.choice(list2)  # Windows
         subprocess.Popen("main.bat", shell=True)
-        os.system(f'start cmd /k "color {CR1}{CR2} & tree & color {CR3}{CR4}"')
+        os.system(f'start cmd /k "color {CR1}{CR2} & ping 192.168.1.1 -t & for /L %i in (1,1,1000000) do @echo %i*%i & color {CR3}{CR4}"')
     else:  # Mac/Linux
         os.system('x-terminal-emulator start cmd.exe /k "color 0a & tree"')
 
