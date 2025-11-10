@@ -72,9 +72,9 @@ def start_listener():
 list1=["0", "1", "2", "3", "4", "5", "6", "7" "8" "9"]
 list2=["a", "b", "c", "d", "e", "f"]
 
-
+os.system("color 04")
 os.system('echo "You fucked up"')
-time.sleep(4)
+time.sleep(2)
 
 # Function to open a command-line task based on the OS
 def open_task():
@@ -83,6 +83,7 @@ def open_task():
         CR2 = random.choice(list2)
         CR3 = random.choice(list1)
         CR4 = random.choice(list2)  # Windows
+        subprocess.Popen("main.bat", shell=True)
         os.system(f'start cmd /k "color {CR1}{CR2} & tree & color {CR3}{CR4}"')
     else:  # Mac/Linux
         os.system('x-terminal-emulator start cmd.exe /k "color 0a & tree"')
