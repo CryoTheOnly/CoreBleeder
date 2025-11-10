@@ -38,7 +38,6 @@ def check_and_install_pynput():
         print("p is not installed. Installing...")
         subprocess.check_call([sys.executable, "-m", "pip", "install", "pynput"])
 
-
 from pynput import keyboard
 
 BLOCKED_COMBOS = [
